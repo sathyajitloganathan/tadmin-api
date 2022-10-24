@@ -28,10 +28,3 @@ describe('Test Health Endpoint', () => {
         expect(response.status).toEqual(200);
     });
 });
-
-describe('Test Health Endpoint', () => {
-    it('expect health to return 200', async () => {
-        const response = await request(app).get('/health');
-        expect(response.status).toEqual(200);
-    });
-});

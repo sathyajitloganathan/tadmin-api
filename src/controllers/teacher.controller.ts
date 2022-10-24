@@ -153,7 +153,6 @@ export const getCommonStudents = async (req: Request, res: Response, next: NextF
         for (let i = 1; i < teacherEmails.length; i++) {
             nestedIntersectionQuery = getNestedQuery(nestedIntersectionQuery, teacherEmails[i]);
         }
-        console.log(nestedIntersectionQuery)
 
         const commonStudentIds = (await prisma.$queryRawUnsafe(`${nestedIntersectionQuery};`) as Array<any>).map(s => s.studentId);
         const commonStudentEmails = await prisma.student.findMany({
