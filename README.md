@@ -4,14 +4,14 @@
 Teachers need a system where they can perform administrative functions for their students. Teachers and students are identified by their email addresses.
 
 ## Technologies and major libraries used
-    * Nodejs
-    * Express
-    * Joi
-    * MySQL
-    * Prisma
-    * Docker
-    * Jest
-    * PM2
+    - Nodejs
+    - Express
+    - Joi
+    - MySQL
+    - Prisma
+    - Docker
+    - Jest
+    - PM2
 
 ## Prerequisites
 
