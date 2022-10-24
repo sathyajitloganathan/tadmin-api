@@ -1,0 +1,18 @@
+# Set the version of docker compose to use
+version: '3.7'
+
+# The containers that compose the project
+services:
+  mysql-test:
+    container_name: mysql-test-db
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - mysql-data-test:/var/lib/mysql-test
+    environment: 
+      MYSQL_ROOT_PASSWORD: HrVMTyr1vSLHjlF
+      MYSQL_DATABASE: tadmin-test
+    ports:
+      - 3306:3306
+volumes:
+  mysql-data-test:

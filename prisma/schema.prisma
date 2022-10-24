@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+model Teacher {
+  id         Int          @id @default(autoincrement())
+  email      String       @unique
+  createdAt  DateTime     @default(now())
+  Enrollment Enrollment[]
+}
+
+model Student {
+  id            Int          @id @default(autoincrement())
+  email         String       @unique
+  createdAt     DateTime     @default(now())
+  isSuspended   Boolean      @default(false)
+  suspendedById Int?
+  Enrollment    Enrollment[]
+}
+
+model Enrollment {
+  id         Int      @id @default(autoincrement())
+  teacherId  Int
+  studentId  Int
+  enrolledAt DateTime @default(now())
+  teacher    Teacher  @relation(fields: [teacherId], references: [id])
+  student    Student  @relation(fields: [studentId], references: [id])
+}
